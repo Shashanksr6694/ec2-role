@@ -1,0 +1,20 @@
+---
+- name: launching an instance
+  ec2:
+     key_name: "{{ keypair }}"
+     group_id: "{{ security_group }}"
+     instance_type: "{{ instance_type }}"
+     image: "{{ image }}"
+     wait: true
+     region: "{{ region }}"
+     count: 1
+     vpc_subnet_id: "{{ subnet }}"
+     assign_public_ip: no
+     instance_tags:
+          Name: ansible
+  register: "{{ instance }}"
+
+- name: launched instance
+  debug:
+    msg: "{{ details }}"
+

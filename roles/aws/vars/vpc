@@ -1,0 +1,3 @@
+---
+search_vpc: vpc_find
+existing_vpc: "{{ vpc_find.vpcs[0].id }}"

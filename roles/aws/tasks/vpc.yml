@@ -1,0 +1,9 @@
+---
+- name: searching vpc 
+  ec2_vpc_net_facts: 
+    region: "{{ region }}"
+  register: "{{ search_vpc }}"
+
+- name: searched 
+  debug: 
+    msg: "{{ existing_vpc }}"

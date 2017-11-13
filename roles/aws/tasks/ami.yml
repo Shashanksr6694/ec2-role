@@ -1,0 +1,13 @@
+---
+- name: searching ami
+  ec2_ami_find:
+    architecture: "{{ arch }}"
+    name: "{{ name }}"
+    sort: name
+    owner: "{{ own }}"
+    region: "{{ region }}"
+  register: "{{ reg }}"
+
+- name: searched 
+  debug:
+    msg: "{{ ami }}"

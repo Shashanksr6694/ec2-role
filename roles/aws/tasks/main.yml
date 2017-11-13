@@ -1,0 +1,34 @@
+---
+# tasks file for aws
+- name: include variables files
+  include_vars: "{{ item }}"
+  with_items:
+    - "ami"
+    - "vpc"
+    - "sg"
+    - "launch"
+
+#playbook to search existing aws ami
+- name: including playbook to search existing aws ami
+  include_tasks: ami.yml
+
+#playbook to search existing aws vpc
+- name: including playbook to search existing aws vpc
+  include_tasks: vpc.yml
+ 
+#playbook to create security group
+- name: including playbook to create security group
+  include_tasks: sg.yml
+
+#playbook to launch instance using above stuffs
+- name: including playbook to launch instance 
+  include_tasks: launch.yml
+
+#playbook to allocate public ip 
+- name: including playbook to allocate public ip
+  include_tasks: alloc.yml
+
+#playbook to associate public ip with the instance
+- name: including playbook to associate public ip
+  include_tasks: asso.yml
+

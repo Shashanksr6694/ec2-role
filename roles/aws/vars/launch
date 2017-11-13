@@ -1,0 +1,9 @@
+---
+keypair: key1
+security_group: "{{ created_group }}"
+instance_type: t2.micro
+image: "{{ ami }}"
+subnet: subnet-5b308300 
+instance: new_instance
+details: "{{ new_instance.instances }}"
+

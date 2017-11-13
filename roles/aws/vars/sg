@@ -1,0 +1,5 @@
+---
+vpc: "{{ existing_vpc }}"
+sg: new_security
+created_group: "{{ new_security.group_id }}"
+     

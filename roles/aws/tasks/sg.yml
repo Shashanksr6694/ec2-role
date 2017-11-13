@@ -1,0 +1,31 @@
+---
+    - name: creating security group
+      ec2_group:
+        name: ansible
+        description: to launch instance
+        vpc_id: "{{ vpc }}" 
+        region: "{{ region }}"
+        rules:
+
+#allowing inbound ports
+
+          - proto: tcp
+            ports:
+              - 80
+              - 22
+              - 443 
+            cidr_ip: 0.0.0.0/0
+
+#allowing icmp port 
+            
+          - proto: icmp
+            from_port: 8 
+            to_port:  -1 
+            cidr_ip: 0.0.0.0/0
+            group_name: ansible
+      register: "{{ sg }}"
+
+
+    - name: created security group
+      debug:
+        msg: "{{ created_group }}" 

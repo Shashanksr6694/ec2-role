@@ -1,0 +1,6 @@
+---
+arch: x86_64
+name: RHEL-7.4_HVM_GA-20170808-x86_64-2-Hourly2-GP2
+own: 309956199498
+reg: ami_find
+ami: "{{ ami_find.results[0].ami_id }}"

@@ -1,0 +1,13 @@
+---
+- name: associating allocated public IP with the instance
+  ec2_eip:
+    device_id: "{{ item }}"
+    ip: "{{ eip.public_ip }}"
+    region: "{{ region }}"
+  with_items: "{{ new_instance.instance_ids }}"
+  register: elastic
+
+- name: associated with the instance
+  debug:
+    msg: "{{ elastic }}"
+
